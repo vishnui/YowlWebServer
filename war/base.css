@@ -1,0 +1,346 @@
+@font-face {
+  font-family: raleway;
+  src: url("fonts/Raleway/raleway_thin.ttf"); }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0 0;
+  overflow-y: hidden; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+a:visited {
+  color: inherit; }
+
+img {
+  border: none; }
+
+header {
+  height: 100%;
+  width: 100%; }
+
+#bg-top-half {
+  width: 100%;
+  height: 50%;
+  background: #5aa7e2;
+  /* Old browsers */
+  background: -moz-radial-gradient(bottom, ellipse cover, #5aa7e2 0%, #207cca 50%, #1e5799 99%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center bottom, 0px, center center, 100%, color-stop(0%, #5aa7e2), color-stop(50%, #207cca), color-stop(99%, #1e5799));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(bottom, ellipse cover, #5aa7e2 0%, #207cca 50%, #1e5799 99%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(bottom, ellipse cover, #5aa7e2 0%, #207cca 50%, #1e5799 99%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(bottom, ellipse cover, #5aa7e2 0%, #207cca 50%, #1e5799 99%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at bottom, #5aa7e2 0%, #207cca 50%, #1e5799 99%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5aa7e2', endColorstr='#1e5799',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+#yowl-phone {
+  position: absolute;
+  left: 35%;
+  top: 10%;
+  box-shadow: 0px 25px 20px -20px black;
+  transition: all ease 1s;
+  -webkit-transition: all ease 1s;
+  -moz-transition: all ease 1s;
+  -ms-transition: all ease 1s;
+  -o-transition: all ease 1s; }
+
+#yowl-logo {
+  position: absolute;
+  left: 38%;
+  top: 23%; }
+
+#bg-bottom-half {
+  width: 100%;
+  height: 50%;
+  background: #ff5454;
+  /* Old browsers */
+  background: -moz-radial-gradient(top, ellipse cover, #ff5454 0%, #f22b2b 60%, #ed3434 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center top, 0px, center center, 100%, color-stop(0%, #ff5454), color-stop(60%, #f22b2b), color-stop(100%, #ed3434));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(top, ellipse cover, #ff5454 0%, #f22b2b 60%, #ed3434 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(top, ellipse cover, #ff5454 0%, #f22b2b 60%, #ed3434 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(top, ellipse cover, #ff5454 0%, #f22b2b 60%, #ed3434 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at top, #ff5454 0%, #f22b2b 60%, #ed3434 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5454', endColorstr='#ed3434',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
+/*#red-stripe		{	position   : absolute; top: 44%;
+					height     : 60px; width: 100%; background: url('images/textures/texture.png') #EA0030;
+					box-shadow : 0em 0em 0.5em #000;	}*/
+#white-stripe {
+  position: absolute;
+  top: 48%;
+  height: 25px;
+  width: 100%;
+  background: #FFF;
+  box-shadow: 0em 0em 0.8em #000; }
+
+#login-tip {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  border-bottom-left-radius: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 20px;
+  padding: 8px 47px 10px 10px;
+  font-family: 'Roboto'; }
+
+#login, #register {
+  position: relative;
+  left: 42px; }
+
+#login:hover, #register:hover {
+  transition: all ease 0.4s;
+  -webkit-transition: all ease 0.4s;
+  -moz-transition: all ease 0.4s;
+  -ms-transition: all ease 0.4s;
+  -o-transition: all ease 0.4s;
+  text-shadow: 1px -1px 15px #000;
+  color: #ff6464;
+  cursor: pointer; }
+
+#gp-login {
+  background: url("images/gplus.png") no-repeat;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 0px;
+  right: 72px;
+  cursor: pointer; }
+
+#gp-login:hover {
+  background: url("images/gplus-hover.png") no-repeat; }
+
+#gp-login:active {
+  background: url("images/gplus-click.png") no-repeat; }
+
+#login-form {
+  position: absolute;
+  padding: 20px;
+  color: white;
+  text-shadow: 1px 1px 1em rgba(255, 0, 0, 0.5);
+  font-size: 200%;
+  font-family: 'raleway'; }
+
+input {
+  width: 260px;
+  padding: 10px 5px;
+  font-family: 'Roboto'; }
+
+input#presubmit {
+  visibility: hidden;
+  width: 300px;
+  background: url("images/textures/tex.png") #cc0000;
+  border: none;
+  position: relative;
+  left: -20px;
+  box-shadow: 0em 0em 0.6em black;
+  color: white;
+  font-size: 100%;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 5px; }
+
+#credify {
+  position: fixed;
+  width: 20px;
+  bottom: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-top-left-radius: 2px;
+  padding: 5px; }
+
+.credbox {
+  box-shadow: 0px 0px 1em black;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  color: white;
+  transition: opacity ease 1s;
+  -webkit-transition: opacity ease 1s;
+  -moz-transition: opacity ease 1s;
+  -ms-transition: opacity ease 1s;
+  -o-transition: opacity ease 1s; }
+
+.drop-form {
+  visibility: hidden;
+  border-bottom-left-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 0px;
+  font-family: 'Roboto' serif;
+  transition: all ease 1s;
+  -webkit-transition: all ease 1s;
+  -moz-transition: all ease 1s;
+  -ms-transition: all ease 1s;
+  -o-transition: all ease 1s;
+  height: auto;
+  min-height: 300px; }
+
+#drop-form-register {
+  color: white;
+  text-shadow: black 1px 1px 3px;
+  font-size: 150%;
+  padding: 10px;
+  overflow: hidden; }
+
+#close-drop-form-btn {
+  visibility: hidden;
+  color: white;
+  right: 0px;
+  top: 0px;
+  margin-right: 10px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Roboto'; }
+
+#close-drop-form-btn:hover {
+  text-shadow: black -1px 1px 5px;
+  cursor: pointer;
+  color: #ff6464; }
+
+#calls-bar {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 125px;
+  padding-top: 12px; }
+
+.call-ctc {
+  width: 110px;
+  height: 125px;
+  box-shadow: 0em 0em 0.1em #333;
+  border-top-left-radius: 55px;
+  border-top-right-radius: 55px;
+  margin-right: 110px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-family: 'raleway','Roboto',serif;
+  font-size: 200%;
+  text-align: center;
+  box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 0.8);
+  transition: box-shadow ease 1s;
+  -webkit-transition: box-shadow ease 1s;
+  -moz-transition: box-shadow ease 1s;
+  -ms-transition: box-shadow ease 1s;
+  -o-transition: box-shadow ease 1s;
+  float: right;
+  cursor: pointer;
+  background: url("images/textures/texture-black.png") rgba(0, 0, 0, 0.5) repeat; }
+
+.call-ctc:hover {
+  box-shadow: 0em 0em 0.3em #500; }
+
+#call-content {
+  transition: left ease 1s;
+  -webkit-transition: left ease 1s;
+  -moz-transition: left ease 1s;
+  -ms-transition: left ease 1s;
+  -o-transition: left ease 1s;
+  height: 350px;
+  position: absolute;
+  left: -400px;
+  top: 15px;
+  width: 350px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  padding-top: 20px;
+  color: white;
+  font-family: 'raleway', sans-serif;
+  font-size: 15pt; }
+
+#content-about {
+  position: absolute;
+  padding: 15px; }
+
+#content-get {
+  position: absolute;
+  padding: 15px; }
+
+#close-ct {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  transition: color ease 0.5s;
+  -webkit-transition: color ease 0.5s;
+  -moz-transition: color ease 0.5s;
+  -ms-transition: color ease 0.5s;
+  -o-transition: color ease 0.5s; }
+
+#close-ct:hover {
+  color: #ff6464;
+  cursor: pointer; }
+
+#registration {
+  position: fixed;
+  width: 50%;
+  left: 25%;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Roboto',sans-serif;
+  font-size: 16pt;
+  color: white;
+  padding: 5px 0px 5px 0px;
+  top: 30px;
+  background: rgba(200, 100, 50, 0.8);
+  border: 1px solid rgba(200, 200, 50, 0.8);
+  border-radius: 1px;
+  box-shadow: 0px 0px 1em #000;
+  visibility: hidden; }
+
+#xarp {
+  font-size: 150%;
+  color: white;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: opacity ease 1s;
+  -webkit-transition: opacity ease 1s;
+  -moz-transition: opacity ease 1s;
+  -ms-transition: opacity ease 1s;
+  -o-transition: opacity ease 1s; }
+
+#firstX {
+  font-size: 200%;
+  font-family: 'Roboto';
+  font-weight: 100;
+  text-shadow: -10px 0px 0.1em black;
+  position: relative;
+  left: 15px; }
+
+#secondX {
+  font-size: 110%;
+  font-family: serif;
+  text-shadow: 1px 1px 0.1em black;
+  position: relative;
+  left: -40px; }
+
+#co {
+  color: #c8c8c8;
+  position: relative;
+  font-size: small;
+  left: -60px;
+  bottom: 5px;
+  text-shadow: 1px 1px 0.2em black; }

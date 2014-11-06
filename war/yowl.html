@@ -1,0 +1,478 @@
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Yowl</title>
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
+<link href="base.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<header>
+
+	<div id="bg-top-half">
+	</div>	
+
+	<div id="white-stripe"></div>
+
+	<img id="yowl-phone" src="images/yowlphone.png" width="350px" height="700px" class="cred-me" credit="logo c/o Xarp designs co.">
+
+	<img id="yowl-logo" src="images/rework-infinitum-yowl-logo.png" width="600px" height="400px" class="cred-me" credit="phone c/o zandog">
+
+	<div id="bg-bottom-half">
+	</div>
+
+</header>
+
+<div id="main-content">
+
+	<div id="calls-bar">
+
+		<div class="call-ctc" id="about" title="About Yowl">
+			<span style="position: relative; top: 30px">About</span>
+		</div>
+
+		<a href="https://play.google.com/store/apps/details?id=indukuriApps.Yowl&feature=search_result#?t=W251bGwsMSwxLDEsImluZHVrdXJpQXBwcy5Zb3dsIl0." target="_blank">
+			<div class="call-ctc cred-me" id="get-now" title="Get the app now!" credit="android logo designed by FantoM, from androidtalk.co.uk"><img height="125" style="border-radius: inherit;" src="images/android-logo.png"></div> 
+		</a>
+
+	</div>
+
+	<div id="call-content">
+
+		<span id="close-ct">X</span>
+
+		<div id="content-about">
+
+			Yowl was developed for the Android Operating System to fill a unique niche: delayed calling. Few applications exist which allow the user to prepare and delay voice messages with a personal touch - the kind of touch that simple texts and other call-replacing media have lost. Yowl is dedicated to just that - personal messages, at any time, even if you are too busy to give them <em>in person.</em>
+
+		</div>
+
+		<div id="content-get">
+
+			Once you have downloaded Yowl, prepare your user credentials and log in here to view your current call queue and register new delayed calls.
+
+		</div>
+
+	</div>
+
+</div>
+
+	<div id="all-login">
+	<!--login tip-->
+	<span id="login-tip">
+		<div id="gp-login" title="Log in with Google"></div>
+		<span id="login"> Login </span>
+		<span id="register"> ? </span>
+	</span>
+
+
+	<span id="close-drop-form-btn">X</span>
+
+	<div id="drop-form-login" class="drop-form">
+		
+		<form id="login-form">
+
+			UserName: <br>
+			<input id="username" type="text" hint="username or email" onblur="validate(this)" required> <br>
+
+			<hr size="1" width="100%">
+
+			PassWord: <br>
+			<input id="password" type="password" onblur="validate(this)" required> <br>
+
+			<hr size="1" width="90%">
+
+			<input type="hidden" id="lMethod">
+
+			<input type="textarea" readonly="readonly" id="presubmit" value="Enter" onclick="logemup()" style="user-select: none;">
+
+		</form>
+	
+	</div>
+
+	<div id="drop-form-register" class="drop-form">
+
+		<span><big>T</big>his is a webpage.</span>
+		<br>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<big>Y</big>owl's webpage.</span>
+		<br>
+		<span style="color:rgb(200,200,200); float: right;"><small><i>...What is Yowl?</i></small></span>
+		<br>
+		<span>As in, <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Yowl:</strong><br> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>the</i> delayed calling app.</span>
+		<br>
+		<br>
+		<hr size="1" width="100%">
+		<span style="padding-left: 10px; text-shadow: 0px 0px 3px darkgreen; position: absolute; bottom: 15px;"> Available <a style="border-bottom: 1px dashed;" href="https://play.google.com/store/apps/details?id=indukuriApps.Yowl&feature=search_result#?t=W251bGwsMSwxLDEsImluZHVrdXJpQXBwcy5Zb3dsIl0." target="_blank">now</a> for android.</span>
+
+	</div>
+	</div>
+
+	<span id="credify" title="Credify" onmouseover="credify()" onmouseout="uncredify()">C<sup>c</sup></span>
+
+	<!--Xarp ref-->
+		<span id="xarp">	
+			<span id="firstX">X<span id="secondX">X</span></span><span style="position: relative; left: -30px; top: -18px; text-shadow: 3px 1px 0.1em rgb(50,50,50)">ARP</span>
+			<span id="co"><em>designs</em></span>
+		</span>
+
+	<div id="registration" onclick="register()">You do not have a Yowl account. Click here to register one now!</div>
+
+</body>
+
+<script type="text/javascript">
+
+var apiKey = "AIzaSyACZLAzz2mbZ7UQnAaor5BH6JpGf3oDn9A";
+var clientId = "495990813039";
+
+var scopes = ["https://www.googleapis.com/auth/paymentssandbox.make_payments",
+                "https://www.googleapis.com/auth/userinfo.profile",
+                "https://www.googleapis.com/auth/userinfo.email"];
+
+function auth(){
+	gapi.client.setApiKey(apiKey);
+	console.log("Apikey set");
+	gapi.auth.authorize(
+			{ "client_id": clientId, "scope": scopes, "immediate": true},
+			handleAuthResult
+		);
+}
+
+function authFlow(){
+	gapi.client.setApiKey(apiKey);
+	console.log("Apikey set; OAuth 2.0 client flow initiated by click");
+	gapi.auth.authorize( 
+		{ "client_id": clientId, "scope": scopes, "immediate": false },
+		handleAuthResult 
+	);
+
+}
+
+var handleAuthResult = function(authResult) {
+					console.log(authResult);
+                    if(authResult!=null && authResult['error']==undefined) {
+                    	console.log(authResult.access_token);
+                    	makeApiCall();
+                	}     
+                }
+
+function makeApiCall(){
+
+	gapi.client.load('oauth2', 'v2', function() {
+		var request = new gapi.client.oauth2.userinfo.get();
+		request.execute(function(resp){
+			console.log(resp);
+			//logemup(resp);
+		});
+	});
+}
+
+</script>
+
+<script type="text/javascript">
+	(function (){
+		var cl = document.createElement('script'); cl.src = "https://apis.google.com/js/client.js?onload=auth"; cl.type="text/javascript"; cl.async = true;
+		var sc = document.getElementsByTagName('script')[1]; sc.parentNode.insertBefore(cl,sc);
+	})();
+
+</script>
+
+<script type="text/javascript">
+
+function getXmlHttpReq(){
+	var x;
+	if(window.XMLHttpRequest){
+		try{
+			x = new XMLHttpRequest();
+		}catch(e){
+			x = new window.ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	return x;
+}
+
+function undrop(id){
+
+	var x = document.getElementById(id);
+	x.style.width = "0px";
+	x.style.visibility = "hidden";
+
+	document.getElementById('close-drop-form-btn').style.visibility = "hidden";
+	var a = document.getElementById('usernameVErr');
+	var b = document.getElementById('passwordVErr');
+	if(a) a.remove();
+	if(b) b.remove();
+
+	var children = x.getElementsByTagName('*');
+	for (var i = children.length - 1; i >= 0; i--) {
+		children[i].style.visibility = "hidden";
+	};
+
+	var show = document.getElementById('login-tip');
+	show.style.visibility = "visible";
+}
+
+function dropWindow(id){
+
+	var hide = document.getElementById('login-tip');
+	hide.style.visibility = 'hidden';
+
+	var x = document.getElementById(id);
+	x.style.width = '300px';
+	x.style.visibility = "visible";
+
+	document.getElementById('close-drop-form-btn').style.visibility = "visible";
+
+	var children = x.getElementsByTagName('*');
+	for (var i = children.length - 1; i >= 0; i--) {
+		children[i].style.visibility = "visible";
+	};
+
+	var closebtn = document.getElementById('close-drop-form-btn');
+	var valueStr = "undrop('"+id.toString()+"')";
+	closebtn.setAttribute("onclick", valueStr);
+
+}
+
+function credify(){
+
+	var creds = document.getElementsByClassName('credbox');
+
+	if(creds[0].style.opacity == 0){
+
+		for (var i = creds.length - 1; i >= 0; i--) {
+			creds[i].style.display = 'inherit';
+			creds[i].style.opacity = '1';
+		};
+
+		document.getElementById('xarp').style.opacity = "1";
+
+	}
+
+}
+
+function uncredify(){
+
+	var creds = document.getElementsByClassName('credbox');
+
+	for (var i = creds.length - 1; i >= 0; i--) {
+		creds[i].style.opacity = '0';
+		creds[i].style.display = 'none';
+	};
+
+	document.getElementById('xarp').style.opacity = "0";
+
+}
+
+function precred(){
+
+	var credit = document.getElementsByClassName('cred-me');
+
+	for (var i = credit.length - 1; i >= 0; i--) {
+			var t = document.createElement('div');
+			t.className = "credbox";
+			t.innerHTML = "<span>"+credit[i].getAttribute('credit')+"</span>";
+			t.style.left = credit[i].offsetLeft;
+			t.style.bottom  = credit[i].offsetHeight-credit[i].offsetTop+50;
+			t.style.padding = "15px";
+			t.style.margin  = "20px";
+			t.style.position = "absolute";
+			t.style.opacity = '0';
+			t.style.display = 'none';
+			document.body.appendChild(t);
+		};
+
+	}
+
+function dispContent(id){
+
+	var x = document.getElementById(id);
+	var cntbox = document.getElementById('call-content');
+	//var hide = cntbox.getElementsByTagName('*');
+
+	//for (var i = hide.length - 1; i >= 0; i--) {
+	//	hide[i].style.visibility = "hidden";
+	//};
+
+	if(id.toString() == ('content-get')){
+		document.getElementById('content-about').style.visibility = "hidden";}
+	else 	{ document.getElementById('content-get').style.visibility = "hidden"; }
+
+	document.getElementById('close-ct').style.visibility = "visible";
+
+	cntbox.style.left = "20px";
+
+	x.style.visibility = "visible";
+}
+
+function closeContent(){
+
+	var cntbox = document.getElementById('call-content');
+	cntbox.style.left = "-400px";
+
+}
+
+function hashpsh(m){
+
+	var pass = document.getElementById('password');
+
+	var xhr = getXmlHttpReq();
+	xhr.open("POST", "", true);
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == 4 && xhr.status==200) {
+			//var hashed = xhr.responseText;
+			//pass.value = hashed;
+			//pass.form.submit();
+		}
+	}
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send('password='+pass.value);
+
+}
+
+function validate(sender){
+
+	var toinsert = document.createElement('p');
+	toinsert.style.fontSize = "10pt";
+	toinsert.style.border   = "1px solid red";
+	toinsert.style.borderRadius = "5px";
+	toinsert.style.background = "rgba(200,0,0,0.5)";
+	toinsert.style.padding = "3px";
+	toinsert.style.margin = "0";
+	toinsert.style.width  = "260px";
+	toinsert.style.fontFamily = "sans-serif";
+	var error;
+
+	if(sender.id == "username"){
+		if(sender.value==undefined || sender.value.match('[^(A-z|0-9)]')!=null || sender.value.length<5){
+			if(!document.getElementById('usernameVErr')){
+				toinsert.id = "usernameVErr";
+				error = document.createTextNode("X: Invalid username");
+				toinsert.appendChild(error);
+				sender.form.insertBefore(toinsert, sender);
+			}
+		}
+		else {if(document.getElementById('usernameVErr')){document.getElementById('usernameVErr').remove();}}
+	};
+	if (sender.id == "password") {
+		if(sender.value==undefined || sender.value.length<6 || sender.value.match('[0-9]')==null){
+			if(!document.getElementById('passwordVErr')){
+				toinsert.id="passwordVErr";
+				error = document.createTextNode("X: Invalid password");
+				toinsert.appendChild(error);
+				sender.form.insertBefore(toinsert, sender);
+			}
+		}
+		else {if(document.getElementById('passwordVErr')){document.getElementById('passwordVErr').remove();}}
+		};
+	}
+
+function getformdata(){
+	validate(document.getElementById('username'));
+	validate(document.getElementById('password'));
+
+	if(document.getElementById('usernameVErr') || document.getElementById('passwordVErr')){
+		console.log('Cannot submit with validation error(s)');
+		return;
+	}
+	var u = document.getElementById('username').value;
+	var p = document.getElementById('password').value;
+	return {'username':u,'password':p};
+}
+
+function register(){
+	console.log("registering");
+	var postData = getformdata();
+	console.log(postData);
+
+	var d = document.getElementById('registration')
+	d.innerHTML = "<span>Registering new user "+postData['username']+"...</span>";
+
+	var xhr = getXmlHttpReq();
+	xhr.open("POST", "/register", true);
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState==4 && xhr.status==200){
+			d.innerHTML="<span>Success! Logging in "+postData['username']+"...</span>";
+			console.log("Registered username="+postData['username']+"&password="+postData['password']);
+			setTimeout(logemup(),1000);
+		}
+		else {
+			d.innerHTML = "<span>ERROR: failed to create user.</span>";
+			d.setAttribute("onclick", "void(0)");
+			setTimeout(function(){
+				d.style.visibility='hidden'; },
+				5000);
+		}
+	}
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send("username="+postData['username']+"&password="+postData['password']);
+}
+
+var serverResponses = ["all-ok","no-billing","no-such-user","incorrect-pass"];
+
+function logemup(){
+
+	var postData = getformdata();
+
+	var xhr = getXmlHttpReq();
+	xhr.open("POST", "/login", true);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState==4 && xhr.status==200){
+			console.log(xhr.responseText);
+
+			switch(xhr.responseText){
+				case serverResponses[0]:
+					console.log("SUCCESS:"+serverResponses[0]);
+					//lockinthrusters();
+					break;
+				case serverResponses[1]:
+					console.log("WARN:"+serverResponses[1]);
+					//lockinthrusters();
+					break;
+				case serverResponses[2]:
+					console.log("WARN:"+serverResponses[2]);
+					var d = document.getElementById('registration');
+
+					d.setAttribute("onclick", "register()");
+					d.innerHTML="<span>You do not have a Yowl account. Click here to register one now!</span>"
+					d.style.visibility = 'visible';
+					break;
+				case serverResponses[3]:
+					console.log("ERROR:"+serverResponses[3]);
+					break;
+				default:
+					console.log("ERROR:unknown");
+					break;
+			}
+		} 
+	}
+
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	var reqstr = "password="+postData['password']+"&username="+postData['username'];
+
+	console.log(reqstr);
+	console.log(xhr);
+
+	xhr.send(reqstr);
+
+}
+
+precred();
+document.getElementById("login").setAttribute("onclick", "dropWindow('drop-form-login')");
+document.getElementById("register").setAttribute("onclick", "dropWindow('drop-form-register')");
+//document.getElementById("credify").setAttribute("onlick", "credify");
+document.getElementById("about").setAttribute("onclick", "dispContent('content-about')");
+document.getElementById("get-now").setAttribute("onclick", "dispContent('content-get')");
+document.getElementById('close-ct').setAttribute("onclick", "closeContent()");
+document.getElementById('gp-login').setAttribute("onclick", "authFlow()");
+
+</script>
+
+</html>

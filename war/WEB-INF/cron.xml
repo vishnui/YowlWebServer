@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/makecalls</url>
+    <description>Check and see if any calls are to be made</description>
+    <schedule>every 1 minutes</schedule>
+  </cron>
+</cronentries>
+		
